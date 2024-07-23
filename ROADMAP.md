@@ -21,5 +21,5 @@
 ## 0.1.0
 
 - [ ] `checkbox` module;
-- [ ] `radio` module;
+- [X] `radio` module;
 - [ ] `slider` module;
