@@ -1,6 +1,6 @@
 # Sapphire UI Kit
 
-Sapphire UI Kit. Contains new widgets and themes for [Iced](https://iced.rs). Support accent colors. Fork of [prettygooey](https://github.com/pieterdd/prettygooey). Unlike the “vanilla” Iced or prettygooey, the font size and main widgets are significantly reduced here, as the Sapphire UI Kit is primarily focused on the regular desktop.
+Sapphire UI Kit contains new widgets and themes for [Iced](https://iced.rs). Support accent colors. Fork of [prettygooey](https://github.com/pieterdd/prettygooey). Sapphire UI Kit is primarily focused on the regular desktop (Linux, Windows, macOS).
 
 ![](assets/demo.png)
 
@@ -118,6 +118,10 @@ impl Sandbox for Text {
         - [ ] Select single file/dir;
         - [ ] Select multiple files/dirs;
 - [ ] Rewrite API
+
+## Used in projects
+
+- [resistor](https://github.com/mskrasnov/resistor) -  Программа для вычисления сопротивления резисторов по цветам их маркировки;
 
 ## License
 
