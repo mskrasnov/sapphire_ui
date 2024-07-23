@@ -1,0 +1,22 @@
+[package]
+name = "sapphire_ui"
+version = "0.1.0"
+edition = "2021"
+description = "Sapphire UI Kit based on Iced and prettygooey"
+authors = ["mskrasnov <https://t.me/svalka07>"]
+license = "MIT"
+repository = "https://github.com/mskrasnov/sapphire_ui"
+#include = ["src", "doc"]
+categories = ["gui"]
+keywords = ["linux", "sapphire", "iced", "gui", "ui", "widgets"]
+
+[profile.release]
+lto = true
+strip = true
+debug = false
+panic = "abort"
+opt-level = "s"
+
+[dependencies]
+#embed-doc-image = "0.1.4"
+iced = "0.12.1"
