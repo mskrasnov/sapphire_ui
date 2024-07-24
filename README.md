@@ -1,6 +1,6 @@
 # Sapphire UI Kit
 
-Sapphire UI Kit contains new widgets and themes for [Iced](https://iced.rs). Support accent colors. Fork of [prettygooey](https://github.com/pieterdd/prettygooey). Sapphire UI Kit is primarily focused on the regular desktop (Linux, Windows, macOS).
+Sapphire UI Kit contains new widgets and themes for [Iced](https://iced.rs). Support accent colors. *Fork of [prettygooey](https://github.com/pieterdd/prettygooey)*. Sapphire UI Kit is primarily focused on the regular desktop (Linux, Windows, macOS).
 
 ![](assets/demo.png)
 
