@@ -8,6 +8,7 @@ use iced::Size;
 
 use iced::widget::column;
 use iced::widget::row;
+use iced::widget::scrollable;
 
 use sapphire_ui::accent::Accent;
 use sapphire_ui::theme::*;
@@ -21,6 +22,7 @@ fn main() -> iced::Result {
             },
             ..Default::default()
         },
+        default_text_size: iced::Pixels(15.),
         ..Default::default()
     };
     WidgetGallery::run(settings)
@@ -158,7 +160,7 @@ impl Sandbox for WidgetGallery {
         )
         .padding(20);
 
-        let contents = column![header, body].spacing(5);
+        let contents = column![header, self.theme.scrollable(body)].spacing(5);
 
         self.theme.primary_container(contents).into()
     }
