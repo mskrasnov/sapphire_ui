@@ -29,4 +29,8 @@ impl Theme {
     pub fn text<'a, L: ToString>(&self, label: L) -> Text<'a> {
         text(label).variant(TextVariant::Regular).size(Pixels(15.))
     }
+
+    pub fn small_text<'a, L: ToString>(&self, label: L) -> Text<'a> {
+        text(label).variant(TextVariant::Dimmed).size(Pixels(10.))
+    }
 }
