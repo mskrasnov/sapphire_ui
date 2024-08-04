@@ -45,10 +45,11 @@ impl card::StyleSheet for Theme {
 }
 
 impl Theme {
-    pub fn card<'a, Message, Theme>(&self, header: Message, content: Message) -> Card<'a, Theme>
+    pub fn card<'a, Message, Theme, H, C>(&self, header: H, content: C) -> Card<'a, Theme>
     where
-        Message: Clone + Display,
         Theme: card::StyleSheet,
+        H: Display,
+        C: Display,
     {
         card(self.text(&header), self.text(&content))
             .style(iced_aw::style::card::CardStyles::Custom(Box::new(*self)))
