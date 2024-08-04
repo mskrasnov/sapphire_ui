@@ -1,3 +1,4 @@
+use embed_doc_image::embed_doc_image;
 use iced::border::Radius;
 use iced::widget::checkbox;
 use iced::Background;
@@ -67,6 +68,38 @@ impl checkbox::StyleSheet for Theme {
 }
 
 impl Theme {
+    /// Instantiates a checkbox widget.
+    ///
+    /// The checkbox will take its value from a variable. When the checkbox's state
+    /// changes, it will emit an event defined by you. You can hook into this event
+    /// via the Sandbox's update function, and update the variable accordingly.
+    ///
+    /// A checkbox is always enabled. Due to limitations of
+    /// [`iced::widget::checkbox::Checkbox`], a disabled state is currently
+    /// [unavailable](https://github.com/iced-rs/iced/pull/2109).
+    ///
+    /// ![Checkbox][checkbox]
+    /// ```
+    /// use sapphire_ui::accent::Accent;
+    /// use sapphire_ui::theme::Theme;
+    ///
+    /// // Your Sandbox's Message enum
+    /// enum Message {
+    ///     // Checkbox will emit an event
+    ///     CheckboxChanged(bool),
+    /// }
+    ///
+    /// // Put this in your Sandbox struct
+    /// let enable_more_inputs = true;
+    ///
+    /// // In your Sandbox's view function
+    /// let theme = Theme {
+    ///     accent_color: Accent::Magenta,
+    /// };
+    /// let my_checkbox = theme.checkbox("Enable more inputs", enable_more_inputs)
+    ///     .on_toggle(Message::CheckboxChanged);
+    /// ```
+    #[embed_doc_image("checkbox", "assets/doc/checkbox.png")]
     pub fn checkbox<'a, Message>(
         &self,
         label: impl Into<String>,

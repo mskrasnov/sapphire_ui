@@ -1,3 +1,4 @@
+use embed_doc_image::embed_doc_image;
 use iced::border::Border;
 use iced::border::Radius;
 use iced::widget::button;
@@ -94,12 +95,38 @@ impl button::StyleSheet for Theme {
 }
 
 impl Theme {
+    /// Instantiates a button widget.
+    ///
+    /// The button is disabled by default. You can enable it by chaining an
+    /// `.on_press` call with a button press event to the button function.
+    ///
+    /// ![Button][button]
+    ///
+    /// ## Example
+    /// ```
+    /// use sapphire_ui::accent::Accent;
+    /// use sapphire_ui::theme::Theme;
+    ///
+    /// // Your message event
+    /// #[derive(Debug, Clone)]
+    /// enum Message {
+    ///     ButtonPressed,
+    /// }
+    ///
+    /// let theme = Theme {
+    ///     accent: Accent::Green,
+    /// };
+    /// let button = theme.button(theme.text("Click me!"))
+    ///     .on_press(Message::ButtonPressed);
+    /// ```
+    #[embed_doc_image("button", "assets/doc/button.png")]
     pub fn button<'a, B>(&self, content: impl Into<Element<'a, B>>) -> iced::widget::Button<'a, B> {
         button(content)
             .padding([10., 20.])
             .style(iced::theme::Button::Custom(Box::new(*self)))
     }
 
+    /// Simplified variant of [`crate::theme::Theme::button`] widget.
     pub fn button_text<'a, B, T: ToString>(&self, text: T) -> iced::widget::Button<'a, B> {
         button(self.text(text))
             .padding([10., 20.])

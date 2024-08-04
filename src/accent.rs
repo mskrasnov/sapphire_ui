@@ -3,7 +3,7 @@ use std::fmt::Display;
 use iced::Background;
 use iced::Color;
 
-#[derive(Debug, Clone, Copy, Eq, PartialEq)]
+#[derive(Debug, Clone, Copy, Eq, PartialEq, Hash)]
 pub enum Accent {
     Magenta,
     Green,
