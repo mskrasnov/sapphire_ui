@@ -28,7 +28,7 @@ impl Theme {
             head_text_color: Color::from_rgb(0., 0., 0.),
             body_background: self.accent_color.primary_container_background(),
             body_text_color: TEXT_COLOR_DEFAULT,
-            foot_background: self.accent_color.primary_container_background(),
+            foot_text_color: TEXT_COLOR_DISABLED,
             ..Default::default()
         }
     }
