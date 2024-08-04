@@ -47,7 +47,7 @@ impl card::StyleSheet for Theme {
 impl Theme {
     pub fn card<'a, Message, Theme, H, C>(&self, header: H, content: C) -> Card<'a, Theme>
     where
-        Theme: card::StyleSheet,
+        // Theme: card::StyleSheet,
         H: Display,
         C: Display,
     {
