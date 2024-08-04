@@ -6,7 +6,7 @@ description = "Sapphire UI Kit based on Iced and prettygooey"
 authors = ["mskrasnov <https://t.me/svalka07>"]
 license = "MIT"
 repository = "https://github.com/mskrasnov/sapphire_ui"
-#include = ["src", "doc"]
+include = ["src", "assets"]
 categories = ["gui"]
 keywords = ["linux", "sapphire", "iced", "gui", "ui", "widgets"]
 
@@ -18,5 +18,13 @@ panic = "abort"
 opt-level = "s"
 
 [dependencies]
-#embed-doc-image = "0.1.4"
+embed-doc-image = "0.1.4"
 iced = "0.12.1"
+iced_aw = "0.9.3"
+lazy_static = { version = "1.5.0", optional = true }
+serde = { version = "1.0.204", features = ["derive"], optional = true }
+toml = { version = "0.8.15", optional = true }
+
+[features]
+default = []
+toml-themes = ["dep:serde", "dep:toml", "dep:lazy_static"]
