@@ -27,4 +27,4 @@ toml = { version = "0.8.15", optional = true }
 
 [features]
 default = []
-toml-themes = ["dep:serde", "dep:toml", "dep:lazy_static"]
+svg = []
