@@ -1,9 +1,10 @@
 //! Declaration of the theme's config structure
 
-// use lazy_static::lazy_static;
+use lazy_static::lazy_static;
 use serde::Deserialize;
 use serde::Serialize;
 use std::collections::HashMap;
+use std::fs;
 
 use iced::Background;
 use iced::Color;
@@ -11,6 +12,10 @@ use iced::Color;
 pub mod prelude;
 
 pub mod button;
+
+lazy_static! {
+    pub static ref THEME: Theme = Theme::default();
+}
 
 pub type WidgetName = String;
 pub type ColorName = String;
@@ -22,15 +27,26 @@ pub struct Theme {
     pub widget: HashMap<WidgetName, WidgetStyle>,
 }
 
+impl Default for Theme {
+    fn default() -> Self {
+        let content = fs::read_to_string("./themes/green_dark.toml").unwrap();
+        toml::from_str(&content).unwrap()
+    }
+}
+
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Meta {
     pub id: String,
     pub variant: ThemeVariant,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Default)]
 pub enum ThemeVariant {
+    #[serde(rename = "light")]
     Light,
+
+    #[default]
+    #[serde(rename = "dark")]
     Dark,
 }
 
@@ -44,7 +60,7 @@ pub struct GlobalStyle {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-pub struct RGB(u8, u8, u8, Option<f32>);
+pub struct RGB(u8, u8, u8);
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct PrimaryFillColor {
@@ -87,21 +103,32 @@ pub struct WidgetStyle {
 
 impl RGB {
     pub fn new(r: u8, g: u8, b: u8) -> Self {
-        Self(r, g, b, None)
+        Self(r, g, b, /*None*/)
     }
 
-    pub fn new_rgba(r: u8, g: u8, b: u8, a: f32) -> Self {
-        Self(r, g, b, Some(a))
-    }
+    // pub fn new_rgba(r: u8, g: u8, b: u8, a: f32) -> Self {
+    //     Self(r, g, b, /*Some(a)*/)
+    // }
 
     pub fn to_color(&self) -> Color {
-        match self.3 {
-            Some(a) => Color::from_rgba8(self.0, self.1, self.2, a),
-            None => Color::from_rgb8(self.0, self.1, self.2),
-        }
+        // match self.3 {
+        //     Some(a) => Color::from_rgba8(self.0, self.1, self.2, a),
+        //     None => Color::from_rgb8(self.0, self.1, self.2),
+        // }
+        Color::from_rgb8(self.0, self.1, self.2)
     }
 
     pub fn to_background(&self) -> Background {
         Background::Color(self.to_color())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_1() {
+        dbg!(Theme::default());
     }
 }
