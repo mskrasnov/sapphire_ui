@@ -8,6 +8,11 @@ Sapphire UI Kit contains new themed components for [Iced](https://iced.rs). *Use
 
 The Crate is divided into two large parts: [`theme`](src/theme.rs) and [`widgets`](src/widgets.rs). The `theme` module contains only a styles, while `widgets` contains implementations of these widgets (as functions). Most functions are wrappers over Iced functions, but with modified styles applied. Sometimes it is allowed to change other non-styles parameters (such as widget sizes, fonts, etc.).
 
+## Features
+
+- `svg` - enables SVG support, adds `sapphire_ui::widgets::svg` widget;
+- `qr_code` - enables QR-code generation support, adds `sapphire_ui::widgets::qr_code` widget;
+
 ## Installation
 
 ```toml

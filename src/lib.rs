@@ -30,3 +30,8 @@
 
 pub mod theme;
 pub mod widgets;
+
+pub use theme::ColorName;
+pub use theme::WidgetName;
+
+pub use theme::Theme;
