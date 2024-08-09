@@ -1,6 +1,6 @@
 <div align="center">
     <h1>Sapphire UI Kit</h1>
-    <img src="assets/logo.jpg" width="200">
+    <img src="assets/logo.png" width="200">
     <p>Create minimalistic GUIs with Rust, Iced and Sapphire UI Kit!</p>
 </div>
 
