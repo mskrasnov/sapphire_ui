@@ -4,7 +4,6 @@ use lazy_static::lazy_static;
 use serde::Deserialize;
 use serde::Serialize;
 use std::collections::HashMap;
-use std::fs;
 
 use iced::Background;
 use iced::Color;
@@ -12,6 +11,7 @@ use iced::Color;
 pub mod prelude;
 
 pub mod button;
+pub mod container;
 
 lazy_static! {
     pub static ref THEME: Theme = Theme::default();
@@ -29,7 +29,7 @@ pub struct Theme {
 
 impl Default for Theme {
     fn default() -> Self {
-        let content = fs::read_to_string("./themes/green_dark.toml").unwrap();
+        let content = include_str!("../themes/default.toml");
         toml::from_str(&content).unwrap()
     }
 }
@@ -59,7 +59,7 @@ pub struct GlobalStyle {
     pub text: Text,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Clone, Copy)]
 pub struct RGB(u8, u8, u8);
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -87,6 +87,7 @@ pub struct Text {
     pub pressed: RGB,
     pub disabled: RGB,
     pub size: f32,
+    pub font: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -103,18 +104,10 @@ pub struct WidgetStyle {
 
 impl RGB {
     pub fn new(r: u8, g: u8, b: u8) -> Self {
-        Self(r, g, b, /*None*/)
+        Self(r, g, b /*None*/)
     }
 
-    // pub fn new_rgba(r: u8, g: u8, b: u8, a: f32) -> Self {
-    //     Self(r, g, b, /*Some(a)*/)
-    // }
-
     pub fn to_color(&self) -> Color {
-        // match self.3 {
-        //     Some(a) => Color::from_rgba8(self.0, self.1, self.2, a),
-        //     None => Color::from_rgb8(self.0, self.1, self.2),
-        // }
         Color::from_rgb8(self.0, self.1, self.2)
     }
 
