@@ -1,6 +1,8 @@
 //! Styles for `iced::widget::button::Button` widget
 
 use super::prelude::*;
+use iced::Shadow;
+use iced::Vector;
 
 pub const NAME: &str = "button";
 
@@ -21,6 +23,11 @@ impl widget::button::StyleSheet for ButtonStyle {
                     .unwrap_or(THEME.global.primary_fill_color.regular)
                     .to_background(),
             ),
+            shadow: Shadow {
+                color: THEME.global.primary_fill_color.regular.to_color(),
+                offset: Vector::new(1., 1.),
+                blur_radius: 2.,
+            },
             border: Border {
                 color: border.regular_grayscale.to_color(),
                 width: border.width,
@@ -40,7 +47,12 @@ impl widget::button::StyleSheet for ButtonStyle {
             border: Border {
                 color: border.regular_grayscale.to_color(),
                 width: border.width,
-                radius: Radius::from(THEME.global.border.radius),
+                radius: Radius::from(border.radius),
+            },
+            shadow: Shadow {
+                color: THEME.global.primary_fill_color.regular.to_color(),
+                offset: Vector::new(1., 1.),
+                blur_radius: 2.,
             },
             text_color: text.hover.to_color(),
             ..Default::default()
@@ -62,7 +74,12 @@ impl widget::button::StyleSheet for ButtonStyle {
             border: Border {
                 color: border.hovered_colored.to_color(),
                 width: border.width,
-                radius: Radius::from(THEME.global.border.radius),
+                radius: Radius::from(border.radius),
+            },
+            shadow: Shadow {
+                color: THEME.global.primary_fill_color.regular.to_color(),
+                offset: Vector::new(1., 1.),
+                blur_radius: 2.,
             },
             text_color: text.pressed.to_color(),
             ..Default::default()
@@ -84,7 +101,7 @@ impl widget::button::StyleSheet for ButtonStyle {
             border: Border {
                 color: border.regular_grayscale.to_color(),
                 width: border.width,
-                radius: Radius::from(THEME.global.border.radius),
+                radius: Radius::from(border.radius),
             },
             text_color: text.pressed.to_color(),
             ..Default::default()
