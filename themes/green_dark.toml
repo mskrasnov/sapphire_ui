@@ -1,0 +1,33 @@
+# Green Dark theme for Sapphire UI Kit
+# (C) 2024 mskrasnov <https://t.me/svalka07>
+
+[meta]
+id = "green:dark"
+variant = "dark"
+
+[global]
+container_background = [28, 28, 30]
+secondary_fill_color = [20, 53, 38]
+
+[global.primary_fill_color]
+regular = [8, 40, 25]
+hovered = [13, 46, 30]
+pressed = [2, 36, 20]
+
+[global.border]
+regular_grayscale = [59, 59, 59]
+regular_colored = [25, 59, 38]
+hovered_grayscale = [76, 76, 76, 153.0]
+hovered_colored = [31, 64, 43]
+focused = [41, 74, 54]
+width = 1.0
+radius = 5.0
+
+[global.text]
+default = [242, 242, 242]
+hover = [255, 255, 255]
+pressed = [178, 178, 178]
+disabled = [102, 102, 102]
+size = 10.0
+
+[widget]

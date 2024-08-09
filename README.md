@@ -1,8 +1,23 @@
-# Sapphire UI Kit
+<div align="center">
+    <h1>Sapphire UI Kit</h1>
+    <img src="assets/logo.png" width="200">
+    <p>Create minimalistic GUIs with Rust, Iced and Sapphire UI Kit!</p>
+</div>
 
-Sapphire UI Kit contains new widgets and themes for [Iced](https://iced.rs). Support accent colors. *Fork of [prettygooey](https://github.com/pieterdd/prettygooey)*. Sapphire UI Kit is primarily focused on the regular desktop (Linux, Windows, macOS).
+Sapphire UI Kit contains new themed components for [Iced](https://iced.rs). Sapphire UI Kit is primarily focused on the regular desktop (Linux, Windows, macOS).
 
 ![](assets/demo.png)
+
+Unlike modern libraries for creating graphical interfaces, Sapphire UI does not suffer from excessive gigantism: the design style of widgets is chosen so that widgets look neat and minimalistic. Programs written with Sapphire UI can fit even on screens with a small resolution.
+
+## Structure
+
+The Crate is divided into two large parts: [`theme`](src/theme.rs) and [`widgets`](src/widgets.rs). The `theme` module contains only a styles, while `widgets` contains implementations of these widgets (as functions). Most functions are wrappers over Iced functions, but with modified styles applied. Sometimes it is allowed to change other non-styles parameters (such as widget sizes, fonts, etc.).
+
+## Features
+
+- `svg` - enables SVG support, adds `sapphire_ui::widgets::svg` widget;
+- `qr_code` - enables QR-code generation support, adds `sapphire_ui::widgets::qr_code` widget;
 
 ## Installation
 
@@ -10,100 +25,16 @@ Sapphire UI Kit contains new widgets and themes for [Iced](https://iced.rs). Sup
 sapphire_ui = "0.1.0"
 ```
 
-## Usage
-
-```rust
-use sapphire_ui::theme::*;
-use sapphire_ui::accent::Accent;
-
-use iced::widget::column;
-use iced::widget::container;
-
-use iced::Element;
-use iced::Sandbox;
-use iced::Settings;
-
-fn main() -> iced::Result {
-    Text::run(Settings::default())
-}
-
-#[derive(Debug, Clone)]
-enum Message {
-    TitleChanged(String),
-    SubTitleChanged(String),
-}
-
-struct Text {
-    theme: Theme,
-    title: String,
-    subtitle: String,
-}
-
-impl Sandbox for Text {
-    type Message = Message;
-
-    fn new() -> Self {
-        Self {
-            theme: Theme {
-                accent_color: Accent::Magenta,
-            },
-            title: "I love Rust and Iced!".to_string(),
-            subtitle: "ЖОПА В КОСМОСЕ".to_string(),
-        }
-    }
-
-    fn title(&self) -> String {
-        format!("Sapphire UI Kit Demo")
-    }
-
-    fn view(&self) -> Element<'_, Self::Message> {
-        let header = self.theme.header_title(&self.title, &self.subtitle);
-        let input = self.theme.text_input("Hello!", &self.text).on_input(Message::TextChanged);
-
-        let title_input = self
-            .theme
-            .text_input("Put some text here...", &self.title)
-            .on_input(TitleChanged);
-        let subtitle_input = self
-            .theme
-            .text_input("Put some text here...", &self.subtitle)
-            .on_input(SubTitleChanged);
-
-        let body = column![
-            header,
-            container(
-                column![title_input, subtitle_input,].spacing(10),
-            )
-            .padding(20),
-        ]
-        .spacing(5);
-
-        self.theme.primary_container(body).into()
-    }
-
-    fn update(&mut self, msg: Self::Message) {
-        match msg {
-            Message::TitleChanged(text) => {
-                self.title = text;
-            },
-            Message::SubTitleChanged(text) => {
-                self.subtitle = text;
-            },
-        }
-    }
-}
-```
-
 ## Features
 
 - [ ] Dark and Light styles;
-- [X] Support accent colors;
+- [ ] Support accent colors;
 - [ ] New styles for:
     - [ ] Tabs (from `iced_aw`)
     - [ ] TabBar (from `iced_aw`)
     - [ ] scroll panel
     - [ ] checkboxes
-    - [X] radio buttons (!!!)
+    - [ ] radio buttons (!!!)
     - [ ] comboboxes
     - [ ] sliders
     - [ ] progress bars;
@@ -122,11 +53,12 @@ impl Sandbox for Text {
 ## Used in projects
 
 - [resistor](https://github.com/mskrasnov/resistor) -  Программа для вычисления сопротивления резисторов по цветам их маркировки;
+- [Cavaletto](https://github.com/mskrasnov/cavaletto) - AI program for image generation;
+
+## Support me
+
+- Use [Boosty](https://boosty.to/linux-for-arm/donate)
 
 ## License
 
 Sapphire UI Kit distributed under MIT license.
-
-## Support me
-
-Users from Russia and Belarus can use [Boosty](https://boosty.to/linux-for-arm).
