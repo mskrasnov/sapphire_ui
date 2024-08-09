@@ -1,4 +1,8 @@
-# Sapphire UI Kit
+<div align="center">
+    <h1>Sapphire UI Kit</h1>
+    <img src="assets/logo.jpg" width="200">
+    <p>Create minimalistic GUIs with Rust, Iced and Sapphire UI Kit!</p>
+</div>
 
 Sapphire UI Kit contains new themed components for [Iced](https://iced.rs). Sapphire UI Kit is primarily focused on the regular desktop (Linux, Windows, macOS).
 
@@ -51,10 +55,10 @@ sapphire_ui = "0.1.0"
 - [resistor](https://github.com/mskrasnov/resistor) -  Программа для вычисления сопротивления резисторов по цветам их маркировки;
 - [Cavaletto](https://github.com/mskrasnov/cavaletto) - AI program for image generation;
 
+## Support me
+
+- Use [Boosty](https://boosty.to/linux-for-arm/donate)
+
 ## License
 
 Sapphire UI Kit distributed under MIT license.
-
-## Support me
-
-Users from Russia and Belarus can use [Boosty](https://boosty.to/linux-for-arm).
