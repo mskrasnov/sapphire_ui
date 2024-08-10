@@ -1,3 +1,4 @@
+use iced::Size;
 use sapphire_ui::theme::prelude::*;
 use sapphire_ui::widgets::button;
 use sapphire_ui::widgets::container;
@@ -7,12 +8,18 @@ use iced::widget::column;
 use iced::widget::row;
 use iced::widget::text;
 use iced::{Font, Sandbox, Settings};
+use widget::horizontal_space;
 use widget::vertical_space;
 
 fn main() -> iced::Result {
     let settings = Settings {
         default_text_size: Pixels(THEME.global.text.size),
         default_font: Font::with_name(&THEME.global.text.font),
+        window: iced::window::Settings {
+            size: Size::new(250., 200.),
+            resizable: false,
+            ..iced::window::Settings::default()
+        },
         ..Default::default()
     };
     ButtonExample::run(settings)
@@ -58,7 +65,17 @@ impl Sandbox for ButtonExample {
         }
 
         let space = vertical_space().height(Length::Fixed(1000.));
-        let clmn = column![row![space].spacing(10).width(Length::Fill), btn].spacing(10);
+        let space1 = vertical_space().height(Length::Fixed(1000.));
+        let clmn = column![
+            row![space].spacing(10).width(Length::Fill),
+            row![
+                horizontal_space().width(Length::Fill),
+                btn,
+                horizontal_space().width(Length::Fill)
+            ],
+            space1
+        ]
+        .spacing(10);
 
         container(scrollable(clmn)).into()
     }
