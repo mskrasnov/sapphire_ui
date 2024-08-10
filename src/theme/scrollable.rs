@@ -49,7 +49,7 @@ impl widget::scrollable::StyleSheet for ScrollableStyle {
                 background: Some(THEME.global.primary_fill_color.regular.to_background()),
                 border: Border {
                     color: if is_mouse_over_scrollbar {
-                        border.hovered_grayscale
+                        border.regular_grayscale
                     } else {
                         border.regular_grayscale
                     }
