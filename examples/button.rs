@@ -1,9 +1,13 @@
 use sapphire_ui::theme::prelude::*;
-use sapphire_ui::widgets::button::button;
-use sapphire_ui::widgets::container::container;
+use sapphire_ui::widgets::button;
+use sapphire_ui::widgets::container;
+use sapphire_ui::widgets::scrollable;
 
+use iced::widget::column;
+use iced::widget::row;
 use iced::widget::text;
 use iced::{Font, Sandbox, Settings};
+use widget::vertical_space;
 
 fn main() -> iced::Result {
     let settings = Settings {
@@ -48,12 +52,14 @@ impl Sandbox for ButtonExample {
     }
 
     fn view(&self) -> Element<'_, Self::Message> {
-        let btn = if !self.pressed {
-            button(text(&self.label)).on_press(Message::ButtonPressed)
-        } else {
-            button(text(&self.label))
-        };
+        let mut btn = button(text(&self.label)).on_press(Message::ButtonPressed);
+        if self.pressed {
+            btn = button(text(&self.label));
+        }
 
-        container(btn).into()
+        let space = vertical_space().height(Length::Fixed(1000.));
+        let clmn = column![row![space].spacing(10).width(Length::Fill), btn].spacing(10);
+
+        container(scrollable(clmn)).into()
     }
 }
