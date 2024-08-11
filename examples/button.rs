@@ -5,7 +5,8 @@ use sapphire_ui::widgets::container;
 use sapphire_ui::widgets::scrollable;
 use sapphire_ui::widgets::small_text;
 use sapphire_ui::widgets::text;
-use sapphire_ui::widgets::text::title_text;
+use sapphire_ui::widgets::text_input;
+use sapphire_ui::widgets::title_text;
 
 use iced::widget::column;
 use iced::widget::row;
@@ -28,13 +29,15 @@ fn main() -> iced::Result {
     ButtonExample::run(settings)
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Debug)]
 enum Message {
     ButtonPressed,
+    ValueChanged(String),
 }
 
 struct ButtonExample {
     label: String,
+    value: String,
     pressed: bool,
 }
 
@@ -44,6 +47,7 @@ impl Sandbox for ButtonExample {
     fn new() -> Self {
         Self {
             label: "Press me!".to_string(),
+            value: "".to_string(),
             pressed: false,
         }
     }
@@ -58,6 +62,7 @@ impl Sandbox for ButtonExample {
                 self.label = "Pressed!".to_string();
                 self.pressed = false;
             }
+            Message::ValueChanged(value) => self.value = value,
         }
     }
 
@@ -67,10 +72,14 @@ impl Sandbox for ButtonExample {
             btn = button(text(&self.label));
         }
 
+        let txt_inpt =
+            text_input("Put your text here...", &self.value).on_input(Message::ValueChanged);
+
         let space = vertical_space().height(Length::Fixed(1000.));
         let space1 = vertical_space().height(Length::Fixed(1000.));
         let clmn = column![
             title_text("Button example"),
+            txt_inpt,
             text("Scroll me!"),
             row![space].spacing(10).width(Length::Fill),
             row![
@@ -81,6 +90,7 @@ impl Sandbox for ButtonExample {
             space1,
             small_text("Amazing!"),
         ]
+            .padding([10, 10])
         .spacing(10);
 
         container(scrollable(clmn)).into()

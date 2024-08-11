@@ -55,3 +55,9 @@ pressed = [48, 89, 125]
 disabled = [157, 157, 157]
 size = 12.0
 font = "Cantarell"
+
+[widget."text_input"]
+padding = [5, 10]
+
+# [widget."text_input".colors]
+# selection_color = [201, 227, 249]
