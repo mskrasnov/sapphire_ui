@@ -13,6 +13,7 @@ pub mod prelude;
 pub mod button;
 pub mod container;
 pub mod scrollable;
+pub mod text;
 
 lazy_static! {
     pub static ref THEME: Theme = Theme::default();
