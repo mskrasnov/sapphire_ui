@@ -20,7 +20,7 @@ opt-level = "s"
 [dependencies]
 embed-doc-image = "0.1.4"
 iced = { version = "0.12.1", features = ["svg", "qr_code"] }
-iced_aw = "0.9.3"
+iced_aw = { version = "0.9.3", optional = true }
 lazy_static = "1.5.0"
 serde = { version = "1.0.204", features = ["derive"] }
 toml = "0.8.15"
@@ -29,3 +29,4 @@ toml = "0.8.15"
 default = []
 svg = []
 qr_code = []
+iced_aw = ["dep:iced_aw"]

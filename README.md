@@ -27,6 +27,7 @@ The Crate is divided into two large parts: [`theme`](src/theme.rs) and [`widgets
 
 - `svg` - enables SVG support, adds `sapphire_ui::widgets::svg` widget;
 - `qr_code` - enables QR-code generation support, adds `sapphire_ui::widgets::qr_code` widget;
+- `iced_aw` [WIP] - emables additional widgets (from `iced_aw` crate) support;
 
 ## Installation
 
