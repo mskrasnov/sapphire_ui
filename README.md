@@ -1,7 +1,7 @@
 <div align="center">
-    <h1>Sapphire UI Kit</h1>
     <img src="assets/logo.png" width="200">
-    <p>Create minimalistic GUIs with Rust, Iced and Sapphire UI Kit!</p>
+    <h1>Sapphire UI Kit</h1>
+    <p><b>Create minimalistic GUIs with Rust, Iced and Sapphire UI Kit!</b></p>
 </div>
 
 Sapphire UI Kit contains new themed components for [Iced](https://iced.rs). Sapphire UI Kit is primarily focused on the regular desktop (Linux, Windows, macOS).
@@ -24,31 +24,6 @@ The Crate is divided into two large parts: [`theme`](src/theme.rs) and [`widgets
 ```toml
 sapphire_ui = "0.1.0"
 ```
-
-## Features
-
-- [ ] Dark and Light styles;
-- [ ] Support accent colors;
-- [ ] New styles for:
-    - [ ] Tabs (from `iced_aw`)
-    - [ ] TabBar (from `iced_aw`)
-    - [ ] scroll panel
-    - [ ] checkboxes
-    - [ ] radio buttons (!!!)
-    - [ ] comboboxes
-    - [ ] sliders
-    - [ ] progress bars;
-    - [ ] text editors;
-    - [ ] togglers;
-    - [ ] tooltips;
-    - [ ] global menus (from `iced_aw`)
-    - [ ] context menus (from `iced_aw`)
-- [ ] New widgets:
-    - [ ] About widget;
-    - [ ] File Dialog widget:
-        - [ ] Select single file/dir;
-        - [ ] Select multiple files/dirs;
-- [ ] Rewrite API
 
 ## Used in projects
 
