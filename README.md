@@ -7,7 +7,7 @@
         <span> | </span>
         <a href="https://github.com/mskrasnov/sapphire_ui/tree/master/examples">Examples</a>
         <span> | </span>
-        <a href="https://github.com/mskrasnov/sapphire_ui/tree/master/donate.md">Support me!</a>
+        <a href="https://github.com/mskrasnov/sapphire_ui/tree/master?tab=readme-ov-file#support-me">Support me!</a>
     </h4>
 </div>
 
