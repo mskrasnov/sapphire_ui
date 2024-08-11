@@ -2,7 +2,16 @@
     <img src="assets/logo.png" width="200">
     <h1>Sapphire UI Kit</h1>
     <p><b>Create minimalistic GUIs with Rust, Iced and Sapphire UI Kit!</b></p>
+    <h4>
+        <a href="https://docs.rs/mskrasnov/latest/sapphire_ui">Documantation (latest release)</a>
+        <span> | </span>
+        <a href="https://github.com/mskrasnov/sapphire_ui/tree/master/examples">Examples</a>
+        <span> | </span>
+        <a href="https://github.com/mskrasnov/sapphire_ui/tree/master/donate.md">Support me!</a>
+    </h4>
 </div>
+
+## About
 
 Sapphire UI Kit contains new themed components for [Iced](https://iced.rs). Sapphire UI Kit is primarily focused on the regular desktop (Linux, Windows, macOS).
 
