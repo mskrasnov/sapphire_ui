@@ -28,7 +28,7 @@ default = [59, 59, 59]
 hover = [59, 59, 59]
 pressed = [56, 56, 56]
 disabled = [157, 157, 157]
-size = 12.0
+size = 14.0
 font = "Cantarell"
 
 [widget."button"]
@@ -46,7 +46,7 @@ hovered_grayscale = [200, 200, 200]
 hovered_colored = [201, 201, 201]
 focused = [200, 200, 200]
 width = 1.0
-radius = 2.0
+radius = 3.0
 
 [widget."button".text]
 default = [59, 59, 59]
