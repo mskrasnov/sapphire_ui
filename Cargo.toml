@@ -19,7 +19,7 @@ opt-level = "s"
 
 [dependencies]
 embed-doc-image = "0.1.4"
-iced = { version = "0.12.1", features = ["svg", "qr_code"] }
+iced = { version = "0.12.1", features = ["svg", "qr_code", "advanced"] }
 iced_aw = { version = "0.9.3", optional = true }
 lazy_static = "1.5.0"
 serde = { version = "1.0.204", features = ["derive"] }
