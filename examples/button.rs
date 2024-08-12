@@ -90,7 +90,7 @@ impl Sandbox for ButtonExample {
             space1,
             small_text("Amazing!"),
         ]
-            .padding([10, 10])
+        .padding([10, 20])
         .spacing(10);
 
         container(scrollable(clmn)).into()
