@@ -16,6 +16,22 @@
 //! Check the [examples](https://github.com/mskrasnov/sapphire_ui/tree/refact/examples)
 //! for more details!
 //!
+//! ## Documentation
+//!
+//! You can build API documentation using `cargo`:
+//!
+//! ```no-test
+//! cargo doc --no-deps --open
+//! ```
+//!
+//! Human Interface Guidelines, Introduction for beginners and User Manual
+//! (`mdbook` is required!):
+//!
+//! ```no-test
+//! cd docs/
+//! mdbook serve --open
+//! ```
+//!
 //! ## License
 //!
 //! Sapphire UI Kit distributed under MIT license.

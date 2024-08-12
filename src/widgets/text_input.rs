@@ -2,9 +2,12 @@ use crate::theme::prelude::*;
 use crate::theme::text_input::TextInputStyle;
 use crate::theme::text_input::NAME;
 
+use embed_doc_image::embed_doc_image;
+
 /// Creates `iced::widget::text_input::TextInput` widget
 ///
 /// ![text_input][text_input]
+#[embed_doc_image("text_input", "assets/doc/text_input.png")]
 pub fn text_input<'a, P, L, Message>(placeholder: P, label: L) -> widget::TextInput<'a, Message>
 where
     P: ToString,
