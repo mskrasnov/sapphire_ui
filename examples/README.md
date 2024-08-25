@@ -6,6 +6,12 @@ An example of using the `sapphire_ui::widgets::button` widget.
 
 ![](button/demo.png)
 
+## [Slider](slider/)
+
+An example of using the `sapphire_ui::widgets::slider` widget.
+
+![](slider/demo.png)
+
 ## [Text input](text_input/)
 
 An example of using the `sapphire_ui::widgets::text_input` widget.
