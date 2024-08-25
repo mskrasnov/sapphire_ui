@@ -10,6 +10,7 @@ use sapphire_ui::theme::text::TextVariant;
 use sapphire_ui::widgets::container;
 use sapphire_ui::widgets::text;
 use sapphire_ui::widgets::text_input;
+use sapphire_ui::widgets::widget_group;
 
 fn main() -> iced::Result {
     TextInputApplication::run(Settings {
@@ -63,24 +64,22 @@ impl Sandbox for TextInputApplication {
         let second_text_input = text_input("Enter some text here", &self.second_text)
             .on_input(Message::SecondTextChanged);
 
-        let value_table = column![
-            row![
-                text("First text:").variant(TextVariant::Dimmed),
-                text(&self.first_text),
-            ]
-            .spacing(5),
-            row![
-                text("Second text:").variant(TextVariant::Dimmed),
-                text(&self.second_text),
-            ]
-            .spacing(5),
+        let _value_titles = column![
+            text("First text:").variant(TextVariant::Dimmed),
+            text("Second text:").variant(TextVariant::Dimmed),
         ]
-        .align_items(iced::Alignment::Center)
+        .spacing(5)
+        .align_items(iced::Alignment::End);
+
+        let value_table = row![
+            _value_titles,
+            column![text(&self.first_text), text(&self.second_text),].spacing(5),
+        ]
         .spacing(5);
 
-        let ui = column![first_text_input, second_text_input, value_table,]
-            .spacing(10)
-            .max_width(250.);
+        let ui =
+            widget_group(column![first_text_input, second_text_input, value_table,].spacing(10))
+                .max_width(250.);
 
         container(ui).center_x().center_y().into()
     }
