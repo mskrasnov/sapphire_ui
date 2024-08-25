@@ -1,3 +1,6 @@
+[workspace]
+members = ["examples/button", "examples/text_input"]
+
 [package]
 name = "sapphire_ui"
 version = "0.1.0"
