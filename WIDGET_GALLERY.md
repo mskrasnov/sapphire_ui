@@ -37,3 +37,7 @@
 **Checkbox:** `widgets::checkbox`
 
 ![](assets/doc/checkbox.png)
+
+**Slider:** `widgets::slider`
+
+![](assets/doc/slider.png)
