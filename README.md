@@ -3,7 +3,7 @@
     <h1>Sapphire UI Kit</h1>
     <p><b>Create minimalistic GUIs with Rust, Iced and Sapphire UI Kit!</b></p>
     <h4>
-        <a href="https://docs.rs/mskrasnov/latest/sapphire_ui">Documantation (latest release)</a>
+        <a href="https://docs.rs/mskrasnov/latest/sapphire_ui">Documentation (latest release)</a>
         <span> | </span>
         <a href="https://github.com/mskrasnov/sapphire_ui/tree/master/examples">Examples</a>
         <span> | </span>
