@@ -5,6 +5,8 @@
     <h4>
         <a href="https://docs.rs/mskrasnov/latest/sapphire_ui">Documentation (latest release)</a>
         <span> | </span>
+        <a href="https://github.com/mskrasnov/sapphire_ui/blob/refact/WIDGET_GALLERY.md">Widget Gallery</a>
+        <span> | </span>
         <a href="https://github.com/mskrasnov/sapphire_ui/tree/master/examples">Examples</a>
         <span> | </span>
         <a href="https://github.com/mskrasnov/sapphire_ui/tree/master?tab=readme-ov-file#support-me">Support me!</a>
