@@ -48,12 +48,7 @@ impl widget::scrollable::StyleSheet for ScrollableStyle {
             scrollbar: widget::scrollable::Scrollbar {
                 background: Some(THEME.global.primary_fill_color.regular.to_background()),
                 border: Border {
-                    color: if is_mouse_over_scrollbar {
-                        border.regular_grayscale
-                    } else {
-                        border.regular_grayscale
-                    }
-                    .to_color(),
+                    color: border.regular_grayscale.to_color(),
                     width: border.width,
                     radius: Radius::from(border.radius),
                 },
