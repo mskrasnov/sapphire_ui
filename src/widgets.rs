@@ -9,6 +9,7 @@ pub mod text_input;
 pub use button::button;
 pub use checkbox::checkbox;
 pub use container::container;
+pub use container::widget_group;
 pub use scrollable::scrollable;
 pub use text::small_text;
 pub use text::text;

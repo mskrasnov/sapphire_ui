@@ -58,6 +58,7 @@ pub enum ThemeVariant {
 #[derive(Debug, Deserialize, Serialize)]
 pub struct GlobalStyle {
     pub container_background: RGB,
+    pub widget_group_background: RGB,
     pub primary_fill_color: PrimaryFillColor,
     pub secondary_fill_color: RGB,
     pub border: Border,

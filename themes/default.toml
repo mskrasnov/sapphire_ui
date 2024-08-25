@@ -7,6 +7,7 @@ variant = "light"
 
 [global]
 container_background = [250, 250, 250]
+widget_group_background = [255, 255, 255]
 secondary_fill_color = [241, 241, 241]
 
 [global.primary_fill_color]

@@ -8,6 +8,7 @@ use sapphire_ui::widgets::small_text;
 use sapphire_ui::widgets::text;
 use sapphire_ui::widgets::text_input;
 use sapphire_ui::widgets::title_text;
+use sapphire_ui::widgets::widget_group;
 
 use iced::widget::column;
 use iced::widget::row;
@@ -85,14 +86,16 @@ impl Sandbox for ButtonExample {
             txt_inpt,
             text("Scroll me!"),
             row![space].spacing(10).width(Length::Fill),
-            row![
-                horizontal_space().width(Length::Fill),
-                btn,
-                checkbox("Press me", self.pressed).on_toggle(Message::CheckboxToggled),
-                horizontal_space().width(Length::Fill),
-            ]
-            .align_items(iced::Alignment::Center)
-            .spacing(5),
+            widget_group(
+                row![
+                    horizontal_space().width(Length::Fill),
+                    btn,
+                    checkbox("Disable button", self.pressed).on_toggle(Message::CheckboxToggled),
+                    horizontal_space().width(Length::Fill),
+                ]
+                .align_items(iced::Alignment::Center)
+                .spacing(5)
+            ),
             space1,
             small_text("Amazing!"),
         ]
