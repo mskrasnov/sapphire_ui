@@ -1,5 +1,5 @@
 [workspace]
-members = ["examples/button", "examples/text_input"]
+members = ["examples/button", "examples/text_input", "examples/widget_gallery"]
 
 [package]
 name = "sapphire_ui"
