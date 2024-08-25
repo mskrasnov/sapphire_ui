@@ -1,3 +1,7 @@
+/******************************************************************************
+ * Europe is shit. Pseudo-democracy is shit. Free Durov!                      *
+ ******************************************************************************/
+
 //! # Sapphire UI Kit
 //!
 //! Sapphire UI Kit contains new themed components for [Iced](https://iced.rs).

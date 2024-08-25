@@ -13,6 +13,11 @@
     </h4>
 </div>
 
+<!--
+Европа — это говно.
+Псевдодемократия — это говно (никакой демократии в Европе никогда не было).
+-->
+
 ## About
 
 Sapphire UI Kit contains new themed components for [Iced](https://iced.rs). Sapphire UI Kit is primarily focused on the regular desktop (Linux, Windows, macOS).
