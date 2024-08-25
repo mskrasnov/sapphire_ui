@@ -14,6 +14,9 @@ pub fn text<'a, L: ToString>(label: L) -> widget::Text<'a> {
 }
 
 /// Creates the big `iced::widget::text::Text` widget
+///
+/// ![title_text][title_text]
+#[embed_doc_image("title_text", "assets/doc/title_text.png")]
 pub fn title_text<'a, L: ToString>(label: L) -> widget::Text<'a> {
     widget::text(label)
         .variant(TextVariant::Regular)
