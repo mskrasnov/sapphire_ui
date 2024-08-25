@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="assets/logo.png" width="200">
+    <img src="assets/logo.png" width="150">
     <h1>Sapphire UI Kit</h1>
     <p><b>Create minimalistic GUIs with Rust, Iced and Sapphire UI Kit!</b></p>
     <h4>
