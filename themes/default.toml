@@ -37,7 +37,7 @@ padding = [5, 10]
 
 [widget."button".colors]
 background_pressed = [216, 234, 250]
-backround_disabled = [242, 242, 242]
+background_disabled = [242, 242, 242]
 
 [widget."button".border]
 regular_grayscale = [200, 200, 200]
@@ -55,6 +55,14 @@ pressed = [48, 89, 125]
 disabled = [157, 157, 157]
 size = 12.0
 font = "Cantarell"
+
+[widget."checkbox"]
+darker_color = [28, 28, 28]
+lighter_color = [31, 31, 31]
+
+[widget."checkbox".colors]
+darker_color = [28, 28, 28]
+lighter_color = [31, 31, 31]
 
 [widget."text_input"]
 padding = [5, 10]

@@ -11,6 +11,7 @@ use iced::Color;
 pub mod prelude;
 
 pub mod button;
+pub mod checkbox;
 pub mod container;
 pub mod scrollable;
 pub mod text;

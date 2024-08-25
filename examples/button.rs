@@ -1,6 +1,7 @@
 use iced::Size;
 use sapphire_ui::theme::prelude::*;
 use sapphire_ui::widgets::button;
+use sapphire_ui::widgets::checkbox;
 use sapphire_ui::widgets::container;
 use sapphire_ui::widgets::scrollable;
 use sapphire_ui::widgets::small_text;
@@ -33,6 +34,7 @@ fn main() -> iced::Result {
 enum Message {
     ButtonPressed,
     ValueChanged(String),
+    CheckboxToggled(bool),
 }
 
 struct ButtonExample {
@@ -63,6 +65,7 @@ impl Sandbox for ButtonExample {
                 self.pressed = false;
             }
             Message::ValueChanged(value) => self.value = value,
+            Message::CheckboxToggled(toggle) => self.pressed = toggle,
         }
     }
 
@@ -85,8 +88,11 @@ impl Sandbox for ButtonExample {
             row![
                 horizontal_space().width(Length::Fill),
                 btn,
+                checkbox("Press me", self.pressed).on_toggle(Message::CheckboxToggled),
                 horizontal_space().width(Length::Fill),
-            ],
+            ]
+            .align_items(iced::Alignment::Center)
+            .spacing(5),
             space1,
             small_text("Amazing!"),
         ]
