@@ -1,0 +1,11 @@
+[package]
+name = "button"
+version = "0.1.0"
+edition = "2021"
+description = "Button example"
+authors = ["mskrasnov <https://t.me/svalka07>"]
+publish = false
+
+[dependencies]
+iced = "0.12.1"
+sapphire_ui.path = "../.."
