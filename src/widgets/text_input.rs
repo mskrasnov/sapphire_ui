@@ -19,5 +19,6 @@ where
             THEME.widget.get(NAME).unwrap().padding.unwrap().0,
             THEME.widget.get(NAME).unwrap().padding.unwrap().1,
         ])
+        .size(THEME.global.text.size)
         .style(theme::TextInput::Custom(Box::new(TextInputStyle)))
 }
