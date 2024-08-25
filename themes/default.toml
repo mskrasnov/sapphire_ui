@@ -1,0 +1,72 @@
+# Default theme for Sapphire UI Kit
+# (C) 2024 mskrasnov <https://t.me/svalka07>
+
+[meta]
+id = "default"
+variant = "light"
+
+[global]
+container_background = [250, 250, 250]
+widget_group_background = [255, 255, 255]
+secondary_fill_color = [241, 241, 241]
+
+[global.primary_fill_color]
+regular = [226, 226, 226]
+hovered = [223, 223, 223]
+pressed = [215, 215, 215]
+
+[global.border]
+regular_grayscale = [200, 200, 200]
+regular_colored = [88, 174, 249]
+hovered_grayscale = [217, 235, 251]
+hovered_colored = [201, 227, 249]
+focused = [88, 174, 249]
+width = 1.0
+radius = 5.0
+
+[global.text]
+default = [59, 59, 59]
+hover = [59, 59, 59]
+pressed = [56, 56, 56]
+disabled = [157, 157, 157]
+size = 14.0
+font = "Cantarell"
+
+[widget."button"]
+background = [251, 251, 251]
+padding = [5, 10]
+
+[widget."button".colors]
+background_pressed = [216, 234, 250]
+background_disabled = [242, 242, 242]
+
+[widget."button".border]
+regular_grayscale = [200, 200, 200]
+regular_colored = [200, 200, 200]
+hovered_grayscale = [200, 200, 200]
+hovered_colored = [201, 201, 201]
+focused = [200, 200, 200]
+width = 1.0
+radius = 3.0
+
+[widget."button".text]
+default = [59, 59, 59]
+hover = [59, 59, 59]
+pressed = [48, 89, 125]
+disabled = [157, 157, 157]
+size = 12.0
+font = "Cantarell"
+
+[widget."checkbox"]
+darker_color = [28, 28, 28]
+lighter_color = [31, 31, 31]
+
+[widget."checkbox".colors]
+darker_color = [28, 28, 28]
+lighter_color = [31, 31, 31]
+
+[widget."text_input"]
+padding = [5, 10]
+
+# [widget."text_input".colors]
+# selection_color = [201, 227, 249]

@@ -1,3 +1,6 @@
+[workspace]
+members = ["examples/button", "examples/slider", "examples/text_input", "examples/widget_gallery"]
+
 [package]
 name = "sapphire_ui"
 version = "0.1.0"
@@ -19,12 +22,14 @@ opt-level = "s"
 
 [dependencies]
 embed-doc-image = "0.1.4"
-iced = "0.12.1"
-iced_aw = "0.9.3"
-lazy_static = { version = "1.5.0", optional = true }
-serde = { version = "1.0.204", features = ["derive"], optional = true }
-toml = { version = "0.8.15", optional = true }
+iced = { version = "0.12.1", features = ["svg", "qr_code", "advanced"] }
+iced_aw = { version = "0.9.3", optional = true }
+lazy_static = "1.5.0"
+serde = { version = "1.0.204", features = ["derive"] }
+toml = "0.8.15"
 
 [features]
 default = []
-toml-themes = ["dep:serde", "dep:toml", "dep:lazy_static"]
+svg = []
+qr_code = []
+iced_aw = ["dep:iced_aw"]
