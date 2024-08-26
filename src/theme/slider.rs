@@ -14,7 +14,7 @@ impl widget::slider::StyleSheet for SliderStyle {
         widget::slider::Appearance {
             rail: widget::slider::Rail {
                 colors: (
-                    THEME.global.border.hovered_colored.to_color(),
+                    THEME.global.border.regular_colored.to_color(),
                     THEME.global.secondary_fill_color.to_color(),
                 ),
                 width: 10.,
@@ -33,7 +33,7 @@ impl widget::slider::StyleSheet for SliderStyle {
         widget::slider::Appearance {
             rail: widget::slider::Rail {
                 colors: (
-                    THEME.global.border.hovered_colored.to_color(),
+                    THEME.global.border.regular_colored.to_color(),
                     THEME.global.secondary_fill_color.to_color(),
                 ),
                 width: 10.,
@@ -52,7 +52,7 @@ impl widget::slider::StyleSheet for SliderStyle {
         widget::slider::Appearance {
             rail: widget::slider::Rail {
                 colors: (
-                    THEME.global.border.hovered_colored.to_color(),
+                    THEME.global.border.regular_colored.to_color(),
                     THEME.global.secondary_fill_color.to_color(),
                 ),
                 width: 10.,
