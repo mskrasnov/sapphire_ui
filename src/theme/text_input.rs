@@ -12,7 +12,6 @@ impl widget::text_input::StyleSheet for TextInputStyle {
 
     fn active(&self, _style: &Self::Style) -> widget::text_input::Appearance {
         let background = THEME.widget.get(NAME).unwrap().background;
-        // let border = THEME.widget.get(NAME).unwrap().border.as_ref().unwrap();
         let border = &THEME.global.border;
         let text = &THEME.global.text;
 
@@ -50,10 +49,38 @@ impl widget::text_input::StyleSheet for TextInputStyle {
     }
 
     fn hovered(&self, _style: &Self::Style) -> widget::text_input::Appearance {
-        self.active(_style)
+        let background = THEME.widget.get(NAME).unwrap().background;
+        let border = &THEME.global.border;
+        let text = &THEME.global.text;
+
+        widget::text_input::Appearance {
+            background: background
+                .unwrap_or(THEME.global.secondary_fill_color)
+                .to_background(),
+            border: Border {
+                color: border.hovered_colored.to_color(),
+                width: border.width,
+                radius: Radius::from(border.radius),
+            },
+            icon_color: text.default.to_color(),
+        }
     }
 
     fn disabled(&self, _style: &Self::Style) -> widget::text_input::Appearance {
-        self.active(_style)
+        let background = THEME.widget.get(NAME).unwrap().background;
+        let border = &THEME.global.border;
+        let text = &THEME.global.text;
+
+        widget::text_input::Appearance {
+            background: background
+                .unwrap_or(THEME.global.primary_fill_color.disabled)
+                .to_background(),
+            border: Border {
+                color: border.regular_grayscale.to_color(),
+                width: border.width,
+                radius: Radius::from(border.radius),
+            },
+            icon_color: text.default.to_color(),
+        }
     }
 }
