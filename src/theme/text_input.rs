@@ -29,7 +29,7 @@ impl widget::text_input::StyleSheet for TextInputStyle {
     }
 
     fn focused(&self, _style: &Self::Style) -> widget::text_input::Appearance {
-        self.active(_style)
+        self.hovered(_style)
     }
 
     fn placeholder_color(&self, _style: &Self::Style) -> Color {
@@ -41,7 +41,7 @@ impl widget::text_input::StyleSheet for TextInputStyle {
     }
 
     fn selection_color(&self, _style: &Self::Style) -> Color {
-        THEME.global.primary_fill_color.pressed.to_color()
+        THEME.global.border.hovered_colored.to_color()
     }
 
     fn disabled_color(&self, _style: &Self::Style) -> Color {
