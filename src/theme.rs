@@ -74,6 +74,7 @@ pub struct PrimaryFillColor {
     pub regular: RGB,
     pub hovered: RGB,
     pub pressed: RGB,
+    pub disabled: RGB,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
