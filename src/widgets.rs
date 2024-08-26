@@ -13,6 +13,7 @@ pub use container::container;
 pub use container::widget_group;
 pub use scrollable::scrollable;
 pub use slider::slider;
+pub use slider::vertical_slider;
 pub use text::small_text;
 pub use text::text;
 pub use text::title_text;

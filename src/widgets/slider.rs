@@ -19,3 +19,15 @@ where
 {
     widget::slider(range, value, on_change).style(theme::Slider::Custom(Box::new(SliderStyle)))
 }
+
+pub fn vertical_slider<'a, T, Message>(
+    range: RangeInclusive<T>,
+    value: T,
+    on_change: impl Fn(T) -> Message + 'a,
+) -> widget::VerticalSlider<'a, T, Message>
+where
+    T: Copy + From<u8> + PartialOrd,
+    Message: Clone,
+{
+    widget::vertical_slider(range, value, on_change).style(theme::Slider::Custom(Box::new(SliderStyle)))
+}
