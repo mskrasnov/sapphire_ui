@@ -54,19 +54,25 @@ impl widget::scrollable::StyleSheet for ScrollableStyle {
                 },
                 scroller: widget::scrollable::Scroller {
                     color: if is_mouse_over_scrollbar {
-                        border.hovered_grayscale
+                        // border.hovered_colored
+                        border.regular_colored
                     } else {
                         border.regular_grayscale
                     }
                     .to_color(),
                     border: Border {
-                        color: border.regular_grayscale.to_color(),
+                        color: if is_mouse_over_scrollbar {
+                            // border.regular_colored.to_color()
+                            border.hovered_colored.to_color()
+                        } else {
+                            border.regular_grayscale.to_color()
+                        },
                         width: border.width,
                         radius: Radius::from(border.radius),
                     },
                 },
             },
-            container: iced::widget::container::Appearance {
+            container: widget::container::Appearance {
                 background: Some(THEME.global.container_background.to_background()),
                 text_color: Some(THEME.global.text.default.to_color()),
                 ..Default::default()

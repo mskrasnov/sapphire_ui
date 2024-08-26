@@ -14,7 +14,7 @@ impl widget::checkbox::StyleSheet for CheckboxStyle {
         widget::checkbox::Appearance {
             background: if is_checked {
                 // THEME.global.primary_fill_color.hovered.to_background()
-                THEME.global.border.hovered_colored.to_background()
+                THEME.global.border.regular_colored.to_background()
             } else {
                 THEME.global.primary_fill_color.regular.to_background()
             },
@@ -31,7 +31,7 @@ impl widget::checkbox::StyleSheet for CheckboxStyle {
     fn hovered(&self, _style: &Self::Style, is_checked: bool) -> widget::checkbox::Appearance {
         widget::checkbox::Appearance {
             background: match is_checked {
-                true => THEME.global.border.hovered_grayscale.to_background(),
+                true => THEME.global.border.hovered_colored.to_background(),
                 false => THEME.global.primary_fill_color.hovered.to_background(),
             },
             border: Border {
