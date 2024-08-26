@@ -1,8 +1,8 @@
 use crate::theme::prelude::*;
 use crate::theme::slider::SliderStyle;
 
-use std::ops::RangeInclusive;
 use embed_doc_image::embed_doc_image;
+use std::ops::RangeInclusive;
 
 /// Creates `iced::widget::slider::Slider` widget
 ///
@@ -29,5 +29,6 @@ where
     T: Copy + From<u8> + PartialOrd,
     Message: Clone,
 {
-    widget::vertical_slider(range, value, on_change).style(theme::Slider::Custom(Box::new(SliderStyle)))
+    widget::vertical_slider(range, value, on_change)
+        .style(theme::Slider::Custom(Box::new(SliderStyle)))
 }
