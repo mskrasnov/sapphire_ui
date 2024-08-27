@@ -38,6 +38,10 @@
 
 ![](assets/doc/checkbox.png)
 
+**Progress bar:** `widgets::progress_bar`
+
+![](assets/doc/progress_bar.png)
+
 **Slider:** `widgets::slider`
 
 ![](assets/doc/slider.png)
