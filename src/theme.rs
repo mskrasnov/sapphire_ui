@@ -13,6 +13,7 @@ pub mod prelude;
 pub mod button;
 pub mod checkbox;
 pub mod container;
+pub mod progress_bar;
 pub mod scrollable;
 pub mod slider;
 pub mod text;

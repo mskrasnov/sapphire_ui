@@ -6,6 +6,12 @@ An example of using the `sapphire_ui::widgets::button` widget.
 
 ![](button/demo.png)
 
+## [Progress bar](progress_bar/)
+
+An example of using the `sapphire_ui::widgets::progress_bar` widget.
+
+![](progress_bar/demo.png)
+
 ## [Slider](slider/)
 
 An example of using the `sapphire_ui::widgets::slider` widget.
