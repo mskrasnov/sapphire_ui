@@ -42,6 +42,10 @@
 
 ![](assets/doc/progress_bar.png)
 
+**Radio button:** `widgets::radio`
+
+![](assets/doc/radio.png)
+
 **Slider:** `widgets::slider`
 
 ![](assets/doc/slider.png)

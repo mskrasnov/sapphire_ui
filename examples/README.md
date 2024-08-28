@@ -12,6 +12,12 @@ An example of using the `sapphire_ui::widgets::progress_bar` widget.
 
 ![](progress_bar/demo.png)
 
+## [Radio](radio/)
+
+An example of using the `sapphire_ui::widgets::radio` widget.
+
+![](demo.png)
+
 ## [Slider](slider/)
 
 An example of using the `sapphire_ui::widgets::slider` widget.
