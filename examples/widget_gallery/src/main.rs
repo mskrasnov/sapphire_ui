@@ -195,7 +195,8 @@ impl Sandbox for WGApplication {
             progress_bar(0.0..=200., self.level as f32),
         ]
         .spacing(5)
-        .align_items(Alignment::Center);
+        .align_items(Alignment::Center)
+        .width(150);
 
         let values_table = column![
             small_text("Some info:"),
