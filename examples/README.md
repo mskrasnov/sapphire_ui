@@ -16,7 +16,7 @@ An example of using the `sapphire_ui::widgets::progress_bar` widget.
 
 An example of using the `sapphire_ui::widgets::radio` widget.
 
-![](demo.png)
+![](radio/demo.png)
 
 ## [Slider](slider/)
 
