@@ -6,8 +6,8 @@ use iced::Settings;
 use iced::Size;
 
 use iced::widget::column;
-use iced::widget::row;
 use iced::widget::horizontal_space;
+use iced::widget::row;
 
 use sapphire_ui::theme::text::TextExt;
 use sapphire_ui::theme::text::TextVariant;
@@ -88,7 +88,7 @@ impl Sandbox for WGApplication {
                 } else {
                     self.radio = Radio::False;
                 }
-            },
+            }
             Message::RadioChanged(rd) => {
                 self.radio = rd;
                 match rd {
@@ -110,10 +110,9 @@ impl Sandbox for WGApplication {
             .width(Length::Fill),
         );
 
-        let check_inputs =
-            checkbox("Enable more inputs", self.enable_inputs).on_toggle(Message::InputsChanged);
-
-        let inputs_radio = row![
+        let check_inputs = row![
+            checkbox("Enable more inputs", self.enable_inputs).on_toggle(Message::InputsChanged),
+            horizontal_space(),
             text("Inputs status:"),
             radio(
                 "Enabled",
@@ -128,7 +127,8 @@ impl Sandbox for WGApplication {
                 Message::RadioChanged
             ),
         ]
-        .spacing(10);
+        .spacing(10)
+        .align_items(Alignment::Center);
 
         let title_inputs = row![
             text_input("Enter title name here...", &self.title).on_input(Message::TitleChanged),
@@ -181,9 +181,7 @@ impl Sandbox for WGApplication {
 
         let ui = column![
             title,
-            row![check_inputs, horizontal_space(), inputs_radio]
-                .spacing(5)
-                .align_items(Alignment::Center),
+            check_inputs,
             title_inputs,
             row![some_text_input, some_text_clean,]
                 .spacing(5)
