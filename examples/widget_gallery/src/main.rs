@@ -44,6 +44,7 @@ struct WGApplication {
     radio: Radio,
     level: u8,
     enable_inputs: bool,
+    use_dark: bool,
 }
 
 #[derive(Debug, Clone)]
@@ -54,6 +55,7 @@ enum Message {
     InputsChanged(bool),
     RadioChanged(Radio),
     LevelChanged(u8),
+    UseDarkToggled(bool),
     LevelDown,
     LevelUp,
     ButtonPressed,
@@ -76,11 +78,20 @@ impl Sandbox for WGApplication {
             radio: Radio::True,
             level: 10,
             enable_inputs: true,
+            use_dark: false,
         }
     }
 
     fn title(&self) -> String {
         format!("Widget Gallery")
+    }
+
+    fn theme(&self) -> iced::Theme {
+        if self.use_dark {
+            iced::Theme::Dark
+        } else {
+            iced::Theme::Light
+        }
     }
 
     fn update(&mut self, message: Self::Message) {
@@ -106,18 +117,23 @@ impl Sandbox for WGApplication {
             Message::LevelChanged(level) => self.level = level,
             Message::LevelDown => self.level -= 1,
             Message::LevelUp => self.level += 1,
+            Message::UseDarkToggled(dark) => self.use_dark = dark,
             Message::ButtonPressed => self.some_text = String::new(),
         }
     }
 
     fn view(&self) -> Element<'_, Self::Message> {
         let title = widget_group(
-            column![
-                title_text(&self.title),
-                text(&self.subtitle).variant(TextVariant::Dimmed)
+            row![
+                column![
+                    title_text(&self.title),
+                    text(&self.subtitle).variant(TextVariant::Dimmed)
+                ]
+                .spacing(5)
+                .width(Length::Fill),
+                checkbox("Dark style", self.use_dark).on_toggle(Message::UseDarkToggled)
             ]
-            .spacing(5)
-            .width(Length::Fill),
+            .align_items(Alignment::Center),
         );
 
         let check_inputs = row![

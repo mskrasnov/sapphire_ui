@@ -4,7 +4,6 @@ use iced::Shadow;
 use iced::Vector;
 
 use super::prelude::*;
-use super::RGB;
 
 pub const NAME: &str = "container";
 
@@ -14,10 +13,22 @@ pub struct ContainerStyle;
 impl widget::container::StyleSheet for ContainerStyle {
     type Style = Theme;
 
-    fn appearance(&self, _style: &Self::Style) -> widget::container::Appearance {
+    fn appearance(&self, style: &Self::Style) -> widget::container::Appearance {
         widget::container::Appearance {
-            background: Some(THEME.global.container_background.to_background()),
-            text_color: Some(THEME.global.text.default.to_color()),
+            background: Some(
+                match style {
+                    Theme::Dark => THEME.global.container_background_dark,
+                    _ => THEME.global.container_background,
+                }
+                .to_background(),
+            ),
+            text_color: Some(
+                match style {
+                    Theme::Dark => THEME.global.text_dark.default,
+                    _ => THEME.global.text.default,
+                }
+                .to_color(),
+            ),
             ..Default::default()
         }
     }
@@ -31,12 +42,20 @@ impl widget::container::StyleSheet for WidgetGroup {
 
     fn appearance(&self, style: &Self::Style) -> widget::container::Appearance {
         widget::container::Appearance {
-            background: Some(match style {
-                // THEME.global.widget_group_background.to_background()
-                Theme::Light => THEME.global.widget_group_background,
-                _ => RGB(1, 2, 3),
-            }.to_background()),
-            text_color: Some(THEME.global.text.default.to_color()),
+            background: Some(
+                match style {
+                    Theme::Dark => THEME.global.widget_group_background_dark,
+                    _ => THEME.global.widget_group_background,
+                }
+                .to_background(),
+            ),
+            text_color: Some(
+                match style {
+                    Theme::Dark => THEME.global.text_dark.default,
+                    _ => THEME.global.text.default,
+                }
+                .to_color(),
+            ),
             shadow: Shadow {
                 color: THEME.global.primary_fill_color.regular.to_color(),
                 offset: Vector::new(2., 2.),
@@ -47,7 +66,6 @@ impl widget::container::StyleSheet for WidgetGroup {
                 width: THEME.global.border.width,
                 radius: Radius::from(THEME.global.border.radius),
             },
-            ..Default::default()
         }
     }
 }
