@@ -13,5 +13,6 @@ pub fn checkbox<'a, Message>(
 ) -> widget::Checkbox<'a, Message> {
     widget::checkbox(label, is_checked)
         .spacing(8)
+        .text_size(THEME.global.text.size)
         .style(theme::Checkbox::Custom(Box::new(CheckboxStyle)))
 }
