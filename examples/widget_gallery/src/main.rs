@@ -7,12 +7,14 @@ use iced::Size;
 
 use iced::widget::column;
 use iced::widget::row;
+use iced::widget::horizontal_space;
 
 use sapphire_ui::theme::text::TextExt;
 use sapphire_ui::theme::text::TextVariant;
 use sapphire_ui::widgets::button;
 use sapphire_ui::widgets::checkbox;
 use sapphire_ui::widgets::container;
+use sapphire_ui::widgets::radio;
 use sapphire_ui::widgets::scrollable;
 use sapphire_ui::widgets::small_text;
 use sapphire_ui::widgets::text;
@@ -37,6 +39,7 @@ struct WGApplication {
     title: String,
     subtitle: String,
     some_text: String,
+    radio: Radio,
     enable_inputs: bool,
 }
 
@@ -46,7 +49,14 @@ enum Message {
     SubtitleChanged(String),
     SomeTextChanged(String),
     InputsChanged(bool),
+    RadioChanged(Radio),
     ButtonPressed,
+}
+
+#[derive(Debug, Clone, Copy, Eq, PartialEq)]
+enum Radio {
+    True,
+    False,
 }
 
 impl Sandbox for WGApplication {
@@ -57,6 +67,7 @@ impl Sandbox for WGApplication {
             title: format!("Title"),
             subtitle: format!("Subtitle"),
             some_text: String::new(),
+            radio: Radio::True,
             enable_inputs: true,
         }
     }
@@ -70,7 +81,21 @@ impl Sandbox for WGApplication {
             Message::TitleChanged(title) => self.title = title,
             Message::SubtitleChanged(subtitle) => self.subtitle = subtitle,
             Message::SomeTextChanged(text) => self.some_text = text,
-            Message::InputsChanged(status) => self.enable_inputs = status,
+            Message::InputsChanged(status) => {
+                self.enable_inputs = status;
+                if status {
+                    self.radio = Radio::True;
+                } else {
+                    self.radio = Radio::False;
+                }
+            },
+            Message::RadioChanged(rd) => {
+                self.radio = rd;
+                match rd {
+                    Radio::True => self.enable_inputs = true,
+                    Radio::False => self.enable_inputs = false,
+                }
+            }
             Message::ButtonPressed => self.some_text = String::new(),
         }
     }
@@ -87,6 +112,24 @@ impl Sandbox for WGApplication {
 
         let check_inputs =
             checkbox("Enable more inputs", self.enable_inputs).on_toggle(Message::InputsChanged);
+
+        let inputs_radio = row![
+            text("Inputs status:"),
+            radio(
+                "Enabled",
+                Radio::True,
+                Some(self.radio),
+                Message::RadioChanged
+            ),
+            radio(
+                "Disabled",
+                Radio::False,
+                Some(self.radio),
+                Message::RadioChanged
+            ),
+        ]
+        .spacing(10);
+
         let title_inputs = row![
             text_input("Enter title name here...", &self.title).on_input(Message::TitleChanged),
             text_input("Enter subtitle name here...", &self.subtitle)
@@ -114,6 +157,7 @@ impl Sandbox for WGApplication {
         ]
         .spacing(5)
         .align_items(Alignment::End);
+
         let values_data = column![
             text(if self.enable_inputs { "yes" } else { "no" }),
             text(env!("CARGO_PKG_VERSION")),
@@ -137,7 +181,9 @@ impl Sandbox for WGApplication {
 
         let ui = column![
             title,
-            check_inputs,
+            row![check_inputs, horizontal_space(), inputs_radio]
+                .spacing(5)
+                .align_items(Alignment::Center),
             title_inputs,
             row![some_text_input, some_text_clean,]
                 .spacing(5)
