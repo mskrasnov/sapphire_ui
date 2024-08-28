@@ -101,7 +101,7 @@ impl Sandbox for WGApplication {
             text_input("Enter some text here...", &self.some_text)
         };
 
-        let some_text_clean = if self.enable_inputs {
+        let some_text_clean = if self.enable_inputs && !self.some_text.is_empty() {
             button("Clean").on_press(Message::ButtonPressed)
         } else {
             button("Clean")
