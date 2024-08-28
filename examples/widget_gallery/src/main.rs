@@ -14,8 +14,10 @@ use sapphire_ui::theme::text::TextVariant;
 use sapphire_ui::widgets::button;
 use sapphire_ui::widgets::checkbox;
 use sapphire_ui::widgets::container;
+use sapphire_ui::widgets::progress_bar;
 use sapphire_ui::widgets::radio;
 use sapphire_ui::widgets::scrollable;
+use sapphire_ui::widgets::slider;
 use sapphire_ui::widgets::small_text;
 use sapphire_ui::widgets::text;
 use sapphire_ui::widgets::text_input;
@@ -40,6 +42,7 @@ struct WGApplication {
     subtitle: String,
     some_text: String,
     radio: Radio,
+    level: u8,
     enable_inputs: bool,
 }
 
@@ -50,6 +53,9 @@ enum Message {
     SomeTextChanged(String),
     InputsChanged(bool),
     RadioChanged(Radio),
+    LevelChanged(u8),
+    LevelDown,
+    LevelUp,
     ButtonPressed,
 }
 
@@ -68,6 +74,7 @@ impl Sandbox for WGApplication {
             subtitle: format!("Subtitle"),
             some_text: String::new(),
             radio: Radio::True,
+            level: 10,
             enable_inputs: true,
         }
     }
@@ -96,6 +103,9 @@ impl Sandbox for WGApplication {
                     Radio::False => self.enable_inputs = false,
                 }
             }
+            Message::LevelChanged(level) => self.level = level,
+            Message::LevelDown => self.level -= 1,
+            Message::LevelUp => self.level += 1,
             Message::ButtonPressed => self.some_text = String::new(),
         }
     }
@@ -155,7 +165,7 @@ impl Sandbox for WGApplication {
             text("Sapphire UI ver.:").variant(TextVariant::Dimmed),
             text("Some text:").variant(TextVariant::Dimmed),
         ]
-        .spacing(5)
+        // .spacing(5)
         .align_items(Alignment::End);
 
         let values_data = column![
@@ -163,11 +173,37 @@ impl Sandbox for WGApplication {
             text(env!("CARGO_PKG_VERSION")),
             text(&self.some_text),
         ]
-        .spacing(5);
+        /*.spacing(5)*/;
+
+        let level_down = if self.level == 0 {
+            button("Down")
+        } else {
+            button("Down").on_press(Message::LevelDown)
+        };
+
+        let level_up = if self.level == 200 {
+            button("Up")
+        } else {
+            button("Up").on_press(Message::LevelUp)
+        };
+
+        let level = column![
+            slider(0..=200, self.level, Message::LevelChanged),
+            row![level_up, text(self.level), level_down,]
+                .spacing(5)
+                .align_items(Alignment::Center),
+            progress_bar(0.0..=200., self.level as f32),
+        ]
+        .spacing(5)
+        .align_items(Alignment::Center);
 
         let values_table = column![
             small_text("Some info:"),
-            widget_group(row![values_titles, values_data].spacing(5)).width(Length::Fill),
+            row![
+                widget_group(row![values_titles, values_data].spacing(5)).width(Length::Fill),
+                level,
+            ]
+            .spacing(5),
         ]
         .spacing(5);
 
@@ -190,6 +226,7 @@ impl Sandbox for WGApplication {
             big_text,
         ]
         .spacing(10);
+
         container(ui).padding([10, 10]).center_x().into()
     }
 }
