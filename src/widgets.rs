@@ -8,6 +8,7 @@ pub mod slider;
 pub mod text;
 pub mod text_editor;
 pub mod text_input;
+pub mod toggler;
 
 pub use button::button;
 pub use checkbox::checkbox;
@@ -23,3 +24,4 @@ pub use text::text;
 pub use text::title_text;
 pub use text_editor::text_editor;
 pub use text_input::text_input;
+pub use toggler::toggler;

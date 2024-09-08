@@ -49,3 +49,7 @@
 **Slider:** `widgets::slider`
 
 ![](assets/doc/slider.png)
+
+**Toggler:** `widgets::toggler`
+
+![](assets/doc/toggler.png)
